@@ -10,11 +10,11 @@ public class Slots {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int slotId;
-
+    private int slotId;
 
     private String slotNumber;
     private String floor;
+    private String vehicleType; // Added vehicleType
     private String propertyName;
     private String city;
     private String district;
@@ -27,10 +27,10 @@ public class Slots {
     // Default constructor
     public Slots() {}
 
-
-    public Slots(SlotsDto slotsDto,String slotNumber, String floor) {
+    public Slots(SlotsDto slotsDto, String slotNumber, String floor, String vehicleType) {
         this.slotNumber = slotNumber;
         this.floor = floor;
+        this.vehicleType = vehicleType; // Assign vehicleType
         this.propertyName = slotsDto.getPropertyName();
         this.city = slotsDto.getCity();
         this.district = slotsDto.getDistrict();
@@ -42,10 +42,13 @@ public class Slots {
     }
 
     // Getters and Setters
+    public int getSlotId() {
+        return slotId;
+    }
 
-    public  int getSlotId(){return slotId;}
-
-    public void setSlotId(int slotId){this.slotId = slotId;}
+    public void setSlotId(int slotId) {
+        this.slotId = slotId;
+    }
 
     public String getSlotNumber() {
         return slotNumber;
@@ -62,6 +65,15 @@ public class Slots {
     public void setFloor(String floor) {
         this.floor = floor;
     }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
 
     public String getPropertyName() {
         return propertyName;
@@ -133,6 +145,7 @@ public class Slots {
         return "Slot{" +
                 "slotNumber='" + slotNumber + '\'' +
                 ", floor='" + floor + '\'' +
+                ", vehicleType='" + vehicleType + '\''+
                 ", propertyName='" + propertyName + '\'' +
                 ", city='" + city + '\'' +
                 ", district='" + district + '\'' +

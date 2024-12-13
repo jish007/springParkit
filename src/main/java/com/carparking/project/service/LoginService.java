@@ -32,7 +32,7 @@ public class LoginService {
         userDto.setRoleName(ADMIN_USER);
         User user = loginRepository.save(new User(userDto));
         if(Objects.nonNull(user)){
-            //emailService.sendEmail(user);
+            emailService.sendEmail(user);
             return "Admin User Is Created";
         }
         else{
