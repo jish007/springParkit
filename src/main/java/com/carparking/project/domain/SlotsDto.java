@@ -18,6 +18,10 @@ public class SlotsDto {
     private boolean slotAvailability;
     private String googleLocation;
     private String adminName;
+    private String adminPhone;
+    private String propertyType;
+    private String adminMailId;
+    private String vehicleNum;
 
     private UserDto userDto;
     private List<RoleDto> roleDto;
@@ -122,6 +126,38 @@ public class SlotsDto {
         this.roleDto = roleDto;
     }
 
+    public String getAdminPhone() {
+        return adminPhone;
+    }
+
+    public void setAdminPhone(String adminPhone) {
+        this.adminPhone = adminPhone;
+    }
+
+    public String getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    public String getAdminMailId() {
+        return adminMailId;
+    }
+
+    public void setAdminMailId(String adminMailId) {
+        this.adminMailId = adminMailId;
+    }
+
+    public String getVehicleNum() {
+        return vehicleNum;
+    }
+
+    public void setVehicleNum(String vehicleNum) {
+        this.vehicleNum = vehicleNum;
+    }
+
     @Override
     public String toString() {
         return "SlotsDto{" +
@@ -134,6 +170,10 @@ public class SlotsDto {
                 ", slotAvailability=" + slotAvailability +
                 ", googleLocation='" + googleLocation + '\'' +
                 ", adminName='" + adminName + '\'' +
+                ", adminPhone='" + adminPhone + '\'' +
+                ", propertyType='" + propertyType + '\'' +
+                ", adminMail='" + adminMailId + '\'' +
+                ", vehicleNum='" + vehicleNum + '\'' +
                 '}';
     }
 }

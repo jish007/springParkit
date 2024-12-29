@@ -1,19 +1,10 @@
-package com.carparking.project.entities;
+package com.carparking.project.domain;
 
-import javax.persistence.*;
 import java.time.LocalTime;
 
-@Entity
-@Table(name = "profile")
-public class Profile {
+public class ProfileDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int profileId;
-
-    @Column(nullable = false)
     private String vehicleNumber;
-
     private String phoneNum;
     private String userName;
     private int noOfVehicles;
@@ -30,16 +21,9 @@ public class Profile {
     private String vehicleModel;
     private double totalAmount;
     private LocalTime bookingTime;
+    private int profileId;
 
     // Getters and Setters
-    public int getProfileId() {
-        return profileId;
-    }
-
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
-    }
-
     public String getVehicleNumber() {
         return vehicleNumber;
     }
@@ -174,5 +158,13 @@ public class Profile {
 
     public void setBookingTime(LocalTime bookingTime) {
         this.bookingTime = bookingTime;
+    }
+
+    public int getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(int profileId) {
+        this.profileId = profileId;
     }
 }

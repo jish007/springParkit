@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface SlotsRepository extends CrudRepository<Slots, Integer> {
 
-    public List<Slots> findByAdminName(String adminName);
+    public List<Slots> findByAdminMailId(String adminMailId);
 }

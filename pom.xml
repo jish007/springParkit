@@ -59,6 +59,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.fazecast</groupId>
+			<artifactId>jSerialComm</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.konghq</groupId>
 			<artifactId>unirest-java</artifactId>
 			<version>3.1.00</version>

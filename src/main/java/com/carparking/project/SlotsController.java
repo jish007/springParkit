@@ -17,8 +17,8 @@ public class SlotsController {
 
     @GetMapping("/slots")
     @CrossOrigin("*")
-    public ResponseEntity<List<Slots>> getAllSlots(@RequestParam String adminName){
-        return ResponseEntity.ok(slotsService.getAllSlots(adminName));
+    public ResponseEntity<List<Slots>> getAllSlots(@RequestParam String adminMailId){
+        return ResponseEntity.ok(slotsService.getAllSlots(adminMailId));
     }
 
     @PostMapping("/slotEnroll")

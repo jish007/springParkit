@@ -55,7 +55,7 @@ public class SlotsService {
                 ));
     }
 
-    public List<Slots> getAllSlots(String adminName) {
-        return slotsRepository.findByAdminName(adminName);
+    public List<Slots> getAllSlots(String adminMailId) {
+        return slotsRepository.findByAdminMailId(adminMailId);
     }
 }
