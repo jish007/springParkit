@@ -2,6 +2,7 @@ package com.carparking.project.service;
 
 import com.carparking.project.domain.ProfileDto;
 import com.carparking.project.entities.Profile;
+import com.carparking.project.entities.PropertyImageEntity;
 import com.carparking.project.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,7 +61,13 @@ public class ProfileService {
             profileDto.setVehicleModel(entity.getVehicleModel());
             profileDto.setTotalAmount(entity.getTotalAmount());
             profileDto.setBookingTime(entity.getBookingTime());
+            profileDto.setBanned(entity.isBanned());
+            profileDto.setFineAmount(entity.getFineAmount());
             return profileDto;
         }).collect(Collectors.toList());
+    }
+
+    public List<Profile> getProfileByVehicleNumber(String vehicleNumber) {
+        return profileRepository.findByVehicleNumber(vehicleNumber);
     }
 }

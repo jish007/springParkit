@@ -30,6 +30,8 @@ public class Profile {
     private String vehicleModel;
     private double totalAmount;
     private LocalTime bookingTime;
+    private boolean isBanned;
+    private int fineAmount;
 
     // Getters and Setters
     public int getProfileId() {
@@ -174,5 +176,21 @@ public class Profile {
 
     public void setBookingTime(LocalTime bookingTime) {
         this.bookingTime = bookingTime;
+    }
+
+    public boolean isBanned() {
+        return isBanned;
+    }
+
+    public void setBanned(boolean banned) {
+        isBanned = banned;
+    }
+
+    public int getFineAmount() {
+        return fineAmount;
+    }
+
+    public void setFineAmount(int fineAmount) {
+        this.fineAmount = fineAmount;
     }
 }

@@ -22,6 +22,8 @@ public class ProfileDto {
     private double totalAmount;
     private LocalTime bookingTime;
     private int profileId;
+    private boolean isBanned;
+    private int fineAmount;
 
     // Getters and Setters
     public String getVehicleNumber() {
@@ -166,5 +168,21 @@ public class ProfileDto {
 
     public void setProfileId(int profileId) {
         this.profileId = profileId;
+    }
+
+    public boolean isBanned() {
+        return isBanned;
+    }
+
+    public void setBanned(boolean banned) {
+        isBanned = banned;
+    }
+
+    public int getFineAmount() {
+        return fineAmount;
+    }
+
+    public void setFineAmount(int fineAmount) {
+        this.fineAmount = fineAmount;
     }
 }

@@ -9,4 +9,7 @@ import java.util.List;
 @Repository
 public interface ProfileRepository extends JpaRepository<Profile, Integer> {
     List<Profile> findByAdminMailId(String adminMailId);
+
+    List<Profile> findByVehicleNumber(String vehicleNumber);
+
 }

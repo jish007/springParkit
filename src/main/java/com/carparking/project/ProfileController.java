@@ -1,6 +1,8 @@
 package com.carparking.project;
 
 import com.carparking.project.domain.ProfileDto;
+import com.carparking.project.entities.Profile;
+import com.carparking.project.entities.PropertyImageEntity;
 import com.carparking.project.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,5 +28,11 @@ public class ProfileController {
     public ResponseEntity<List<ProfileDto>> getProfilesByAdminMailId(@RequestParam String adminMailId) {
         List<ProfileDto> profileDtos = profileService.getProfilesByAdminMailId(adminMailId);
         return ResponseEntity.ok(profileDtos);
+    }
+
+    @GetMapping("/by-vehicle-number")
+    public ResponseEntity<List<Profile>> getProfileByVehicleNumber(@RequestParam String vehicleNumber) {
+        List<Profile> profile = profileService.getProfileByVehicleNumber(vehicleNumber);
+        return ResponseEntity.ok(profile);
     }
 }
