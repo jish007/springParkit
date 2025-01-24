@@ -21,7 +21,6 @@ public class ProfileDto {
     private String vehicleModel;
     private double totalAmount;
     private LocalTime bookingTime;
-    private int profileId;
     private boolean isBanned;
     private int fineAmount;
 
@@ -160,14 +159,6 @@ public class ProfileDto {
 
     public void setBookingTime(LocalTime bookingTime) {
         this.bookingTime = bookingTime;
-    }
-
-    public int getProfileId() {
-        return profileId;
-    }
-
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
     }
 
     public boolean isBanned() {

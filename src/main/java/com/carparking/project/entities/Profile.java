@@ -8,10 +8,7 @@ import java.time.LocalTime;
 public class Profile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int profileId;
-
-    @Column(nullable = false)
+    @Column(name="vehicle_number")
     private String vehicleNumber;
 
     private String phoneNum;
@@ -32,15 +29,6 @@ public class Profile {
     private LocalTime bookingTime;
     private boolean isBanned;
     private int fineAmount;
-
-    // Getters and Setters
-    public int getProfileId() {
-        return profileId;
-    }
-
-    public void setProfileId(int profileId) {
-        this.profileId = profileId;
-    }
 
     public String getVehicleNumber() {
         return vehicleNumber;

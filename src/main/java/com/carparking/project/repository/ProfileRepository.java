@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ProfileRepository extends JpaRepository<Profile, Integer> {
+public interface ProfileRepository extends JpaRepository<Profile, String> {
     List<Profile> findByAdminMailId(String adminMailId);
 
     List<Profile> findByVehicleNumber(String vehicleNumber);

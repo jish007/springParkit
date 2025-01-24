@@ -56,7 +56,6 @@ public class ProfileService {
             profileDto.setParkedPropertyName(entity.getParkedPropertyName());
             profileDto.setDurationOfAllocation(entity.getDurationOfAllocation());
             profileDto.setPaymentDate(entity.getPaymentDate());
-            profileDto.setProfileId(entity.getProfileId());
             profileDto.setAdminMailId(entity.getAdminMailId());
             profileDto.setVehicleModel(entity.getVehicleModel());
             profileDto.setTotalAmount(entity.getTotalAmount());
