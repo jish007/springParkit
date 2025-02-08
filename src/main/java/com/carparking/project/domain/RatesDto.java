@@ -1,15 +1,12 @@
 package com.carparking.project.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 
 public class RatesDto {
 
     private String googleLocation;
     private int duration;
     private int charge;
-    private String adminName;
+    private String adminMailId;
 
     // Constructors
     public RatesDto() {}
@@ -33,12 +30,12 @@ public class RatesDto {
         return duration;
     }
 
-    public String getAdminName() {
-        return adminName;
+    public String getAdminMailId() {
+        return adminMailId;
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    public void setAdminMailId(String adminMailId) {
+        this.adminMailId = adminMailId;
     }
 
     public void setDuration(int duration) {

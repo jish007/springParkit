@@ -15,7 +15,7 @@ public class Rates {
     private String googleLocation;
     private int duration;
     private int charge;
-    private String adminName;
+    private String adminMailId;
 
     // Constructors
     public Rates() {}
@@ -24,7 +24,7 @@ public class Rates {
         this.googleLocation = ratesDto.getGoogleLocation();
         this.duration = ratesDto.getDuration();
         this.charge = ratesDto.getCharge();
-        this.adminName = emailId;
+        this.adminMailId = emailId;
     }
 
     // Getters and Setters

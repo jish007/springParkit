@@ -15,7 +15,7 @@ public class EmailService {
     public void sendEmail(User user){
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("007parkit@gmail.com");  // Replace with your email
+        message.setFrom("007parkit@gmail.com");
         message.setTo(user.getEmail());
         message.setSubject("Welcome Admin:Please find your credential");
         message.setText("Your UserName is"+user.getEmail()+"Your Passsword is "+user.getPassWord());

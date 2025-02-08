@@ -2,22 +2,21 @@ package com.carparking.project.entities;
 
 import com.carparking.project.domain.RoleDto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
 public class RoleStaging {
 
     @Id
-    @Column(name="rolename")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "rolename")
     private String roleName;
 
     private String responsibilities;
-
-    private String adminName;
+    private String adminMailId;
 
     public RoleStaging() {
     }
@@ -25,7 +24,7 @@ public class RoleStaging {
     public RoleStaging(RoleDto roleDto, String email) {
         this.roleName = roleDto.getRoleName();
         this.responsibilities = roleDto.getResponsibilities();
-        this.adminName = email;
+        this.adminMailId = email;
     }
 
     public String getRoleName() {
@@ -40,12 +39,12 @@ public class RoleStaging {
         return responsibilities;
     }
 
-    public String getAdminName() {
-        return adminName;
+    public String getAdminMailId() {
+        return adminMailId;
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    public void setAdminMailId(String adminMailId) {
+        this.adminMailId = adminMailId;
     }
 
     public void setResponsibilities(String responsibilities) {

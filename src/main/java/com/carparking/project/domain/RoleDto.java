@@ -1,27 +1,24 @@
 package com.carparking.project.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 public class RoleDto {
 
     private String roleName;
 
     private String responsibilities;
 
-    private String adminName;
+    private String adminMailId;
 
     public RoleDto(String roleName, String responsibilities) {
         this.roleName = roleName;
         this.responsibilities = responsibilities;
     }
 
-    public String getAdminName() {
-        return adminName;
+    public String getAdminMailId() {
+        return adminMailId;
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    public void setAdminMailId(String adminMailId) {
+        this.adminMailId = adminMailId;
     }
 
     public String getRoleName() {
