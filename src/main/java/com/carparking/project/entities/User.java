@@ -17,17 +17,43 @@ public class User {
 
     private String password;
 
+    @Column(name="active")
+    private String active;
+
     @Column(name="rolename")
     private String roleName;
-
+    @Column(name="remarks")
+    private String remarks;
 
     public User(){
 
     }
+
+    public User(String active) {
+    }
+
     public User(UserDto userDto){
         this.email = userDto.getEmail();
         this.password = userDto.getPassword();
         this.roleName = userDto.getRoleName();
+        this.active = userDto.getActive();
+
+    }
+
+    public String getActive() {
+        return active;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
     }
 
     public String getUserName() {

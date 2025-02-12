@@ -7,6 +7,7 @@ import com.carparking.project.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +39,17 @@ public class ProfileService {
 
         profileRepository.save(entity);
         return "Profile saved successfully!";
+    }
+
+    public Profile saveOnSiteProfile(String vehicleNumber,String slotNumber,String bookingSource){
+        Profile profile = new Profile();
+        profile.setVehicleNumber(vehicleNumber);
+        profile.setAllocatedSlotNumber(slotNumber);
+        profile.setBookingSource(bookingSource);
+        profile.setBookingDate(LocalDateTime.now().toString());
+        profile.setPaidStatus(false);
+        profile.setDurationOfAllocation(60);
+        return profile;
     }
 
     public List<ProfileDto> getProfilesByAdminMailId(String adminMailId) {

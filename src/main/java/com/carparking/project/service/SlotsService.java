@@ -3,6 +3,7 @@ package com.carparking.project.service;
 import com.carparking.project.domain.FloorSlotDto;
 import com.carparking.project.domain.SlotsDto;
 import com.carparking.project.entities.Slots;
+import com.carparking.project.repository.LoginRepository;
 import com.carparking.project.repository.SlotsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,9 @@ public class SlotsService {
 
     @Autowired
     RoleService roleService;
+
+    @Autowired
+    LoginRepository loginRepository;
 
     public String createSlots(SlotsDto slotsDto) throws Exception {
         Iterable<Slots> slots = slotsRepository.saveAll(getSlots(slotsDto));
@@ -57,5 +61,9 @@ public class SlotsService {
 
     public List<Slots> getAllSlots(String adminMailId) {
         return slotsRepository.findByAdminMailId(adminMailId);
+    }
+
+    public String getActiveUser(){
+        return loginRepository.getActiveUser();
     }
 }

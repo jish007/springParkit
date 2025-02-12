@@ -23,6 +23,7 @@ public class ProfileDto {
     private LocalTime bookingTime;
     private boolean isBanned;
     private int fineAmount;
+    private String bookingSource;
 
     // Getters and Setters
     public String getVehicleNumber() {
@@ -175,5 +176,13 @@ public class ProfileDto {
 
     public void setFineAmount(int fineAmount) {
         this.fineAmount = fineAmount;
+    }
+
+    public String getBookingSource() {
+        return bookingSource;
+    }
+
+    public void setBookingSource(String bookingSource) {
+        this.bookingSource = bookingSource;
     }
 }

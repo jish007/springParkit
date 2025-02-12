@@ -29,6 +29,7 @@ public class Profile {
     private LocalTime bookingTime;
     private boolean isBanned;
     private int fineAmount;
+    private String bookingSource;
 
     public String getVehicleNumber() {
         return vehicleNumber;
@@ -180,5 +181,13 @@ public class Profile {
 
     public void setFineAmount(int fineAmount) {
         this.fineAmount = fineAmount;
+    }
+
+    public String getBookingSource() {
+        return bookingSource;
+    }
+
+    public void setBookingSource(String bookingSource) {
+        this.bookingSource = bookingSource;
     }
 }

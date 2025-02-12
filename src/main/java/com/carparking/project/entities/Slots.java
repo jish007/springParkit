@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "slots")
-public class Slots {
+public class Slots implements Comparable<Slots>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -199,5 +199,10 @@ public class Slots {
 
     public void setVehicleNum(String vehicleNum) {
         this.vehicleNum = vehicleNum;
+    }
+
+    @Override
+    public int compareTo(Slots other) {
+        return this.slotNumber.compareTo(other.slotNumber); // Ascending order
     }
 }

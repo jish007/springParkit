@@ -23,4 +23,15 @@ public class EmailService {
         mailSender.send(message);
 
     }
+
+    public void sendEmailfornoca(String admin){
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("007parkit@gmail.com");  // Replace with your email
+        message.setTo(admin);
+        message.setSubject("inbuilt camera failed");
+        message.setText("please attach the number plate manually");
+        mailSender.send(message);
+
+    }
 }
