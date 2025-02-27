@@ -7,22 +7,22 @@ public class ProfileDto {
     private String vehicleNumber;
     private String phoneNum;
     private String userName;
-    private int noOfVehicles;
+    private Integer noOfVehicles;
     private String vehicleType;
     private String bookingDate;
     private String userEmailId;
-    private boolean paidStatus;
-    private double paidAmount;
+    private Boolean paidStatus;
+    private Double paidAmount;
     private String allocatedSlotNumber;
     private String parkedPropertyName;
-    private int durationOfAllocation;
+    private Integer durationOfAllocation;
     private String paymentDate;
     private String adminMailId;
     private String vehicleModel;
-    private double totalAmount;
+    private Double totalAmount;
     private LocalTime bookingTime;
-    private boolean isBanned;
-    private int fineAmount;
+    private Boolean isBanned;
+    private Integer fineAmount;
     private String bookingSource;
 
     // Getters and Setters
@@ -50,11 +50,11 @@ public class ProfileDto {
         this.userName = userName;
     }
 
-    public int getNoOfVehicles() {
+    public Integer getNoOfVehicles() {
         return noOfVehicles;
     }
 
-    public void setNoOfVehicles(int noOfVehicles) {
+    public void setNoOfVehicles(Integer noOfVehicles) {
         this.noOfVehicles = noOfVehicles;
     }
 
@@ -82,19 +82,19 @@ public class ProfileDto {
         this.userEmailId = userEmailId;
     }
 
-    public boolean isPaidStatus() {
+    public Boolean isPaidStatus() {
         return paidStatus;
     }
 
-    public void setPaidStatus(boolean paidStatus) {
+    public void setPaidStatus(Boolean paidStatus) {
         this.paidStatus = paidStatus;
     }
 
-    public double getPaidAmount() {
+    public Double getPaidAmount() {
         return paidAmount;
     }
 
-    public void setPaidAmount(double paidAmount) {
+    public void setPaidAmount(Double paidAmount) {
         this.paidAmount = paidAmount;
     }
 
@@ -114,11 +114,11 @@ public class ProfileDto {
         this.parkedPropertyName = parkedPropertyName;
     }
 
-    public int getDurationOfAllocation() {
+    public Integer getDurationOfAllocation() {
         return durationOfAllocation;
     }
 
-    public void setDurationOfAllocation(int durationOfAllocation) {
+    public void setDurationOfAllocation(Integer durationOfAllocation) {
         this.durationOfAllocation = durationOfAllocation;
     }
 
@@ -146,11 +146,11 @@ public class ProfileDto {
         this.vehicleModel = vehicleModel;
     }
 
-    public double getTotalAmount() {
+    public Double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(double totalAmount) {
+    public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
@@ -162,19 +162,19 @@ public class ProfileDto {
         this.bookingTime = bookingTime;
     }
 
-    public boolean isBanned() {
+    public Boolean isBanned() {
         return isBanned;
     }
 
-    public void setBanned(boolean banned) {
+    public void setBanned(Boolean banned) {
         isBanned = banned;
     }
 
-    public int getFineAmount() {
+    public Integer getFineAmount() {
         return fineAmount;
     }
 
-    public void setFineAmount(int fineAmount) {
+    public void setFineAmount(Integer fineAmount) {
         this.fineAmount = fineAmount;
     }
 

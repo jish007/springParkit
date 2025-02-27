@@ -5,6 +5,8 @@ import com.carparking.project.helper.SlotsHelper;
 import com.carparking.project.service.*;
 import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +24,9 @@ public class AdruinoController {
     @Autowired
     ProfileService profileService;
 
-    @PostMapping("/updateSensor")
-    public void updateSensorData(@RequestParam Map<String, String> requestParams) {
-        adruinoService.getSlot(requestParams);
+    @PostMapping(value = "/updateSensor", produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> updateSensorData(@RequestParam Map<String, String> requestParams) {
+        Integer response = adruinoService.getSlot(requestParams);
+        return  ResponseEntity.ok(response.toString().trim());  // Trim extra spaces
     }
 }

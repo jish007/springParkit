@@ -19,6 +19,10 @@ public class PropertyImageEntity {
     @Column(nullable = false)
     private String propertyName;
 
+    private String image2;
+
+    private String propertyDesc;
+
     // Getters and setters
     public Long getImageId() {
         return imageId;
@@ -50,5 +54,21 @@ public class PropertyImageEntity {
 
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+
+    public String getPropertyDesc() {
+        return propertyDesc;
+    }
+
+    public void setPropertyDesc(String propertyDesc) {
+        this.propertyDesc = propertyDesc;
     }
 }

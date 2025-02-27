@@ -19,6 +19,8 @@ public class PropertyImageService {
         propertyImageEntity.setImage(propertyImageDto.getImage());
         propertyImageEntity.setPropertyLocation(propertyImageDto.getPropertyLocation());
         propertyImageEntity.setPropertyName(propertyImageDto.getPropertyName());
+        propertyImageEntity.setImage2(propertyImageDto.getImage2());
+        propertyImageEntity.setPropertyDesc(propertyImageEntity.getPropertyDesc());
         propertyImageRepository.save(propertyImageEntity);
         return "Image uploaded successfully!";
     }

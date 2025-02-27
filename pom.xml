@@ -131,6 +131,7 @@
 			<version>3.1.00</version>
 			<classifier>standalone</classifier>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -141,7 +142,15 @@
 				<configuration>
 				</configuration>
 			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 
 </project>

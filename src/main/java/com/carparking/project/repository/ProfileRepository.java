@@ -10,6 +10,6 @@ import java.util.List;
 public interface ProfileRepository extends JpaRepository<Profile, String> {
     List<Profile> findByAdminMailId(String adminMailId);
 
-    List<Profile> findByVehicleNumber(String vehicleNumber);
+    Profile findByVehicleNumber(String vehicleNumber);
 
 }

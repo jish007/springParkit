@@ -12,6 +12,6 @@ public interface LoginRepository extends CrudRepository<User, String> {
 
     public User findByEmail(String email);
 
-    @Query(value = "SELECT email FROM login WHERE active = 'ACTIVE'", nativeQuery = true)
+    @Query(value = "SELECT email FROM login WHERE active = 'ACTIVE' and rolename = 'ADMIN_USER'", nativeQuery = true)
     public String getActiveUser();
 }

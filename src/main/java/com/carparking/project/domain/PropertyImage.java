@@ -5,14 +5,18 @@ public class PropertyImage {
     private String image;
     private String propertyLocation;
     private String propertyName;
+    private String image2;
+    private String propertyDesc;
 
     // Default constructor
     public PropertyImage() {}
 
-    public PropertyImage(String image, String propertyLocation, String propertyName) {
+    public PropertyImage(String image, String propertyLocation, String propertyName, String image2,String propertyDesc) {
         this.image = image;
         this.propertyLocation = propertyLocation;
         this.propertyName = propertyName;
+        this.image2 = image2;
+        this.propertyDesc = propertyDesc;
     }
 
     public String getImage() {
@@ -46,5 +50,21 @@ public class PropertyImage {
                 ", propertyLocation='" + propertyLocation + '\'' +
                 ", propertyName='" + propertyName + '\'' +
                 '}';
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+
+    public String getPropertyDesc() {
+        return propertyDesc;
+    }
+
+    public void setPropertyDesc(String propertyDesc) {
+        this.propertyDesc = propertyDesc;
     }
 }

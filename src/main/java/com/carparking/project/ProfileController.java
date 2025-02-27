@@ -31,8 +31,8 @@ public class ProfileController {
     }
 
     @GetMapping("/by-vehicle-number")
-    public ResponseEntity<List<Profile>> getProfileByVehicleNumber(@RequestParam String vehicleNumber) {
-        List<Profile> profile = profileService.getProfileByVehicleNumber(vehicleNumber);
+    public ResponseEntity<Profile> getProfileByVehicleNumber(@RequestParam String vehicleNumber) {
+        Profile profile = profileService.getProfileByVehicleNumber(vehicleNumber);
         return ResponseEntity.ok(profile);
     }
 }

@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 
 @Service
 public class ImageService {
@@ -38,7 +39,7 @@ public class ImageService {
     public static void getImage(){
         try {
             // ESP32-CAM snapshot URL
-            String snapshotUrl = "http://192.168.1.12/capture";
+            String snapshotUrl = "http://192.168.1.9/capture";
 
             // Create URL object
             URL url = new URL(snapshotUrl);
@@ -52,7 +53,7 @@ public class ImageService {
             // Read the input stream
             InputStream inputStream = connection.getInputStream();
             String userHome = System.getProperty("user.home");
-            String documentsPath = userHome + File.separator + "Documents";
+            String documentsPath = Paths.get(userHome, "Documents").toString();
             File outputFile = new File(documentsPath, "snapshot.jpg");
 
             // Save image to a file
@@ -77,10 +78,10 @@ public class ImageService {
     }
 
     public static String getVehicleNumber() {
-        // getImage();
+        //getImage();
         String userHome = System.getProperty("user.home");
         String documentsPath = userHome + File.separator + "Documents";
-        File imageFile = new File(documentsPath,"snapshot.jpg");
+        File imageFile = new File(documentsPath, "test.jpg");
 
         // Avoid creating new HTTP client in every request
         try {

@@ -78,7 +78,7 @@ public class ProfileService {
         }).collect(Collectors.toList());
     }
 
-    public List<Profile> getProfileByVehicleNumber(String vehicleNumber) {
+    public Profile getProfileByVehicleNumber(String vehicleNumber) {
         return profileRepository.findByVehicleNumber(vehicleNumber);
     }
 }
