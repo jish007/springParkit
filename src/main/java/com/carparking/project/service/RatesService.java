@@ -32,7 +32,7 @@ public class RatesService {
         return rates;
     }
 
-   /* public List<Rates>getRatesAll(String emailid){
+    public List<Rates>getRatesAll(String emailid){
         return ratesRepository.getAllRates(emailid);
-    }*/
+    }
 }
