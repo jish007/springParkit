@@ -7,6 +7,7 @@ public class PropertyImage {
     private String propertyName;
     private String image2;
     private String propertyDesc;
+    private String propertyOwner;
 
     // Default constructor
     public PropertyImage() {}
@@ -66,5 +67,13 @@ public class PropertyImage {
 
     public void setPropertyDesc(String propertyDesc) {
         this.propertyDesc = propertyDesc;
+    }
+
+    public String getPropertyOwner() {
+        return propertyOwner;
+    }
+
+    public void setPropertyOwner(String propertyOwner) {
+        this.propertyOwner = propertyOwner;
     }
 }

@@ -3,6 +3,7 @@ package com.carparking.project.entities;
 import com.carparking.project.domain.SlotsDto;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "slots")
@@ -27,6 +28,16 @@ public class Slots implements Comparable<Slots>{
     private String propertyType;
     private String adminMailId;
     private String vehicleNum;
+    private Integer x;
+    private Integer y;
+    private Integer height;
+    private Integer width;
+    private String ranges;
+    private boolean hold;
+    private LocalDateTime holdExpiryTime;
+    private LocalDateTime startTime;
+    private LocalDateTime exitTime;
+    private String sheetId;
 
     // Default constructor
     public Slots() {}
@@ -204,5 +215,85 @@ public class Slots implements Comparable<Slots>{
     @Override
     public int compareTo(Slots other) {
         return this.slotNumber.compareTo(other.slotNumber); // Ascending order
+    }
+
+    public Integer getX() {
+        return x;
+    }
+
+    public void setX(Integer x) {
+        this.x = x;
+    }
+
+    public Integer getY() {
+        return y;
+    }
+
+    public void setY(Integer y) {
+        this.y = y;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public String getRanges() {
+        return ranges;
+    }
+
+    public void setRanges(String ranges) {
+        this.ranges = ranges;
+    }
+
+    public boolean isHold() {
+        return hold;
+    }
+
+    public void setHold(boolean hold) {
+        this.hold = hold;
+    }
+
+    public LocalDateTime getHoldExpiryTime() {
+        return holdExpiryTime;
+    }
+
+    public void setHoldExpiryTime(LocalDateTime holdExpiryTime) {
+        this.holdExpiryTime = holdExpiryTime;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getExitTime() {
+        return exitTime;
+    }
+
+    public void setExitTime(LocalDateTime exitTime) {
+        this.exitTime = exitTime;
+    }
+
+    public String getSheetId() {
+        return sheetId;
+    }
+
+    public void setSheetId(String sheetId) {
+        this.sheetId = sheetId;
     }
 }

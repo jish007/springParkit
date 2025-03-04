@@ -1,6 +1,7 @@
 package com.carparking.project;
 
 import com.carparking.project.domain.UserDto;
+import com.carparking.project.entities.User;
 import com.carparking.project.service.ImageService;
 import com.carparking.project.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class AdminController {
 
     @PostMapping("/login")
     @CrossOrigin("*")
-    public ResponseEntity<String> login(@RequestBody UserDto userDto) throws Exception {
+    public ResponseEntity<User> login(@RequestBody UserDto userDto) throws Exception {
         return ResponseEntity.ok(adminService.login(userDto));
     }
 

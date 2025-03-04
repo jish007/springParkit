@@ -13,8 +13,8 @@ public class Rates {
     private Long id;
 
     private String googleLocation;
-    private int duration;
-    private int charge;
+    private Double duration;
+    private Double charge;
     private String adminMailId;
 
     // Constructors
@@ -36,19 +36,19 @@ public class Rates {
         this.googleLocation = googleLocation;
     }
 
-    public int getDuration() {
+    public Double getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Double duration) {
         this.duration = duration;
     }
 
-    public int getCharge() {
+    public Double getCharge() {
         return charge;
     }
 
-    public void setCharge(int charge) {
+    public void setCharge(Double charge) {
         this.charge = charge;
     }
 
@@ -60,5 +60,13 @@ public class Rates {
                 ", duration=" + duration +
                 ", charge=" + charge +
                 '}';
+    }
+
+    public String getAdminMailId() {
+        return adminMailId;
+    }
+
+    public void setAdminMailId(String adminMailId) {
+        this.adminMailId = adminMailId;
     }
 }

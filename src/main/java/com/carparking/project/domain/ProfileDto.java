@@ -1,5 +1,6 @@
 package com.carparking.project.domain;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class ProfileDto {
@@ -9,21 +10,23 @@ public class ProfileDto {
     private String userName;
     private Integer noOfVehicles;
     private String vehicleType;
-    private String bookingDate;
+    private LocalDateTime bookingDate;
     private String userEmailId;
     private Boolean paidStatus;
     private Double paidAmount;
     private String allocatedSlotNumber;
     private String parkedPropertyName;
-    private Integer durationOfAllocation;
+    private String durationOfAllocation;
     private String paymentDate;
     private String adminMailId;
     private String vehicleModel;
     private Double totalAmount;
     private LocalTime bookingTime;
     private Boolean isBanned;
-    private Integer fineAmount;
+    private Double fineAmount;
     private String bookingSource;
+
+    private String password;
 
     // Getters and Setters
     public String getVehicleNumber() {
@@ -66,11 +69,11 @@ public class ProfileDto {
         this.vehicleType = vehicleType;
     }
 
-    public String getBookingDate() {
+    public LocalDateTime getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(String bookingDate) {
+    public void setBookingDate(LocalDateTime bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -114,11 +117,11 @@ public class ProfileDto {
         this.parkedPropertyName = parkedPropertyName;
     }
 
-    public Integer getDurationOfAllocation() {
+    public String getDurationOfAllocation() {
         return durationOfAllocation;
     }
 
-    public void setDurationOfAllocation(Integer durationOfAllocation) {
+    public void setDurationOfAllocation(String durationOfAllocation) {
         this.durationOfAllocation = durationOfAllocation;
     }
 
@@ -170,11 +173,11 @@ public class ProfileDto {
         isBanned = banned;
     }
 
-    public Integer getFineAmount() {
+    public Double getFineAmount() {
         return fineAmount;
     }
 
-    public void setFineAmount(Integer fineAmount) {
+    public void setFineAmount(Double fineAmount) {
         this.fineAmount = fineAmount;
     }
 
@@ -184,5 +187,13 @@ public class ProfileDto {
 
     public void setBookingSource(String bookingSource) {
         this.bookingSource = bookingSource;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

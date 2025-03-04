@@ -25,8 +25,9 @@ public class AdruinoController {
     ProfileService profileService;
 
     @PostMapping(value = "/updateSensor", produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> updateSensorData(@RequestParam Map<String, String> requestParams) {
-        Integer response = adruinoService.getSlot(requestParams);
+    public ResponseEntity<String> updateSensorData(@RequestParam Map<String, String> requestParams) throws Exception {
+        String response = adruinoService.getSlot(requestParams);
+        System.out.println(response);
         return  ResponseEntity.ok(response.toString().trim());  // Trim extra spaces
     }
 }

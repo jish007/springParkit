@@ -63,7 +63,7 @@ public class SuperAdminService {
     public String acceptPropertyDetails(String email) throws Exception {
         User user = loginRepository.findByEmail(email);
         if(Objects.nonNull(user)){
-            emailService.sendEmail(user);
+            emailService.sendEmailAdmin(user);
             return "Successfully mailed";
         }
         else{

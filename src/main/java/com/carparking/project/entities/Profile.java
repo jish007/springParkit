@@ -1,6 +1,7 @@
 package com.carparking.project.entities;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -15,20 +16,20 @@ public class Profile {
     private String userName;
     private Integer noOfVehicles;
     private String vehicleType;
-    private String bookingDate;
+    private LocalDateTime bookingDate;
     private String userEmailId;
     private Boolean paidStatus;
     private Double paidAmount;
     private String allocatedSlotNumber;
     private String parkedPropertyName;
-    private Integer durationOfAllocation;
+    private String durationOfAllocation;
     private String paymentDate;
     private String adminMailId;
     private String vehicleModel;
     private Double totalAmount;
     private LocalTime bookingTime;
     private Boolean isBanned;
-    private Integer fineAmount;
+    private Double fineAmount;
     private String bookingSource;
 
     public String getVehicleNumber() {
@@ -71,11 +72,11 @@ public class Profile {
         this.vehicleType = vehicleType;
     }
 
-    public String getBookingDate() {
+    public LocalDateTime getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(String bookingDate) {
+    public void setBookingDate(LocalDateTime bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -119,11 +120,11 @@ public class Profile {
         this.parkedPropertyName = parkedPropertyName;
     }
 
-    public Integer getDurationOfAllocation() {
+    public String getDurationOfAllocation() {
         return durationOfAllocation;
     }
 
-    public void setDurationOfAllocation(Integer durationOfAllocation) {
+    public void setDurationOfAllocation(String durationOfAllocation) {
         this.durationOfAllocation = durationOfAllocation;
     }
 
@@ -175,11 +176,11 @@ public class Profile {
         isBanned = banned;
     }
 
-    public Integer getFineAmount() {
+    public Double getFineAmount() {
         return fineAmount;
     }
 
-    public void setFineAmount(Integer fineAmount) {
+    public void setFineAmount(Double fineAmount) {
         this.fineAmount = fineAmount;
     }
 

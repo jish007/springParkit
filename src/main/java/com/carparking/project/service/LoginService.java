@@ -15,49 +15,46 @@ public class LoginService {
     @Autowired
     private LoginRepository loginRepository;
 
+    @Autowired
+    private EmailService emailService;
 
-    public String login(UserDto userDto) throws Exception {
-        User user =  loginRepository.findByEmailAndPassword(userDto.getEmail(),userDto.getPassword());
-        if(Objects.nonNull(user)){
-            if (Objects.equals(user.getRoleName(), "ADMIN_USER")){
-                user.setActive("ACTIVE");
-                loginRepository.save(user);
-                return "Admin Is Valid";
-            }
-            else if(Objects.equals(user.getRoleName(), "SUPER_ADMIN")){
-                user.setActive("ACTIVE");
-                loginRepository.save(user);
-                return "Super Admin Is Valid";
-            }
-            else {
-                return "Invalid Credential";
-            }
-        }
-        else{
+
+    public User login(UserDto userDto) throws Exception {
+        User user = loginRepository.findByEmailAndPassword(userDto.getEmail(), userDto.getPassword());
+        if (Objects.nonNull(user)) {
+            user.setActive("ACTIVE");
+            loginRepository.save(user);
+            return user;
+        } else {
             throw new Exception("Invalid Credential");
         }
     }
 
-    public void updateStatus(String errorcode,String email){
-        Optional<User> login =  loginRepository.findById(email);
+    public void updateStatus(String errorcode, String email) {
+        Optional<User> login = loginRepository.findById(email);
         login.get().setRemarks(errorcode);
         loginRepository.save(login.get());
     }
 
     public String signUp(UserDto userDto, String ADMIN_USER) throws Exception {
         userDto.setRoleName(ADMIN_USER);
+        userDto.setActive("INACTIVE");
         User user = loginRepository.save(new User(userDto));
-        if(Objects.nonNull(user)){
+        if (Objects.nonNull(user) && "ADMIN_USER".equals(ADMIN_USER)) {
             return "Admin User Is Created";
         }
-        else{
+        if(Objects.nonNull(user)&& "USER".equals(ADMIN_USER)){
+            emailService.sendEmailUser(user);
+            return "User Login Created";
+        }
+        else {
             throw new Exception("Operation Failed");
         }
     }
 
-    public String logout(String emailid){
+    public String logout(String emailid) {
         Optional<User> login = loginRepository.findById(emailid);
-        login.get().setActive("");
+        login.get().setActive("INACTIVE");
         loginRepository.save(login.get());
         return "logout succesfull";
     }

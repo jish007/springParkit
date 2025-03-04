@@ -20,12 +20,17 @@ public class PropertyImageService {
         propertyImageEntity.setPropertyLocation(propertyImageDto.getPropertyLocation());
         propertyImageEntity.setPropertyName(propertyImageDto.getPropertyName());
         propertyImageEntity.setImage2(propertyImageDto.getImage2());
-        propertyImageEntity.setPropertyDesc(propertyImageEntity.getPropertyDesc());
+        propertyImageEntity.setPropertyDesc(propertyImageDto.getPropertyDesc());
+        propertyImageEntity.setPropertyOwner(propertyImageDto.getPropertyOwner());
         propertyImageRepository.save(propertyImageEntity);
         return "Image uploaded successfully!";
     }
 
     public List<PropertyImageEntity> getImagesByPropertyName(String propertyName) {
         return propertyImageRepository.findByPropertyName(propertyName);
+    }
+
+    public List<PropertyImageEntity> getAllProperty(){
+        return (List<PropertyImageEntity>) propertyImageRepository.findAll();
     }
 }

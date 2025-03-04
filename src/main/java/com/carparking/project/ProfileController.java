@@ -4,7 +4,9 @@ import com.carparking.project.domain.ProfileDto;
 import com.carparking.project.entities.Profile;
 import com.carparking.project.entities.PropertyImageEntity;
 import com.carparking.project.service.ProfileService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +21,7 @@ public class ProfileController {
     private ProfileService profileService;
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveProfile(@RequestBody ProfileDto profileDto) {
+    public ResponseEntity<String> saveProfile(@RequestBody ProfileDto profileDto) throws Exception {
         String response = profileService.saveProfile(profileDto);
         return ResponseEntity.ok(response);
     }
@@ -34,5 +36,11 @@ public class ProfileController {
     public ResponseEntity<Profile> getProfileByVehicleNumber(@RequestParam String vehicleNumber) {
         Profile profile = profileService.getProfileByVehicleNumber(vehicleNumber);
         return ResponseEntity.ok(profile);
+    }
+
+    @GetMapping("/updateprofile")
+    public ResponseEntity<String> updateProfile() throws JsonProcessingException {
+
+        return new ResponseEntity<String>(profileService.updateProfile(), HttpStatus.valueOf(200));
     }
 }

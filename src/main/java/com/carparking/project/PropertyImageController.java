@@ -28,4 +28,9 @@ public class PropertyImageController {
         List<PropertyImageEntity> images = propertyImageService.getImagesByPropertyName(propertyName);
         return ResponseEntity.ok(images);
     }
+
+    @GetMapping("/get-all-property")
+    public ResponseEntity<List<PropertyImageEntity>> getAllProperty() {
+        return ResponseEntity.ok(propertyImageService.getAllProperty());
+    }
 }

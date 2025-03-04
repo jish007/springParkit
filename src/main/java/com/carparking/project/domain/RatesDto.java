@@ -4,14 +4,14 @@ package com.carparking.project.domain;
 public class RatesDto {
 
     private String googleLocation;
-    private int duration;
-    private int charge;
+    private Double duration;
+    private Double charge;
     private String adminMailId;
 
     // Constructors
     public RatesDto() {}
 
-    public RatesDto(String googleLocation, int duration, int charge) {
+    public RatesDto(String googleLocation, Double duration, Double charge) {
         this.googleLocation = googleLocation;
         this.duration = duration;
         this.charge = charge;
@@ -26,7 +26,7 @@ public class RatesDto {
         this.googleLocation = googleLocation;
     }
 
-    public int getDuration() {
+    public Double getDuration() {
         return duration;
     }
 
@@ -38,15 +38,15 @@ public class RatesDto {
         this.adminMailId = adminMailId;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Double duration) {
         this.duration = duration;
     }
 
-    public int getCharge() {
+    public Double getCharge() {
         return charge;
     }
 
-    public void setCharge(int charge) {
+    public void setCharge(Double charge) {
         this.charge = charge;
     }
 

@@ -32,20 +32,21 @@ public class AdruinoService {
     private SlotsService slotsService;
 
 
-    public Integer getSlot(Map<String, String> requestParams) {
+    public String getSlot(Map<String, String> requestParams) throws Exception {
         System.out.println("I am in" + requestParams);
         String vehicleno = imageService.getVehicleNumber();
         vehicleno = vehicleno.replaceAll("\\s+", "").toLowerCase();
         System.out.println(vehicleno);
         Optional<Profile> profile = Optional.ofNullable(profileService.getProfileByVehicleNumber(vehicleno));
         if (profile.isPresent()) {
-            return 1;
+            Profile profile1 = profileService.getProfileByVehicleNumber(vehicleno);
+            return "1"+profile1.getUserName().toString();
         } else if (slotsService.isAvailableSlot()) {
             Slots slots = slotsHelper.parkCar(vehicleno);
-            profileService.saveOnSiteProfile(vehicleno, slots.getSlotNumber(), "ON-SITE");
-            return 1;
+            profileService.saveOnSiteProfile(vehicleno, slots, "ON-SITE");
+            return "11"+slots.getSlotNumber();
         } else {
-            return 0;
+            return "0";
         }
         /*Slots slots=  slotsHelper.parkCar(vehicleno);
         String activeUser = slotsHelper.getActiveuser();
