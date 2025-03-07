@@ -38,9 +38,4 @@ public class ProfileController {
         return ResponseEntity.ok(profile);
     }
 
-    @GetMapping("/updateprofile")
-    public ResponseEntity<String> updateProfile() throws JsonProcessingException {
-
-        return new ResponseEntity<String>(profileService.updateProfile(), HttpStatus.valueOf(200));
-    }
 }

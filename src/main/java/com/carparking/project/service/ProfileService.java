@@ -43,7 +43,6 @@ public class ProfileService {
         entity.setVehicleNumber(profileDto.getVehicleNumber());
         entity.setUserName(profileDto.getUserName());
         entity.setUserEmailId(profileDto.getUserEmailId());
-
         UserDto userDto = new UserDto();
         userDto.setEmail(profileDto.getUserEmailId());
         userDto.setPassword(profileDto.getPassword());
@@ -117,8 +116,16 @@ public class ProfileService {
         return profileRepository.findByVehicleNumber(vehicleNumber);
     }
 
-    public  String updateProfile() throws JsonProcessingException {
-        String jsonResponse =   jotFormSubmissions.getFormResponse();
+    public List<Profile> getProfiles(){
+        List<Profile> list = new ArrayList<>();
+        profileRepository.findAll().iterator().forEachRemaining(list::add);
+        return list;
+    }
+
+
+
+    public  String updateProfile(String formId) throws JsonProcessingException {
+        String jsonResponse =   jotFormSubmissions.getFormResponse(formId);
         JsonResponse jsonResponse1 =objectMapper.readValue(jsonResponse, JsonResponse.class);
         List<FormContent> formdata = jsonResponse1.getContent();
         Map<String, Answer> answers =   formdata.stream().map(form->form.getAnswers()).findFirst().get();
@@ -153,4 +160,5 @@ public class ProfileService {
         }
         return  null;
     }
+
 }
