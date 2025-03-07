@@ -15,7 +15,7 @@ public class FloorSlotDto {
         this.vehicleType = vehicleType;
         this.sheetMap = sheetMap;
     }
-    
+
     public List<String> getSlotNumber() {
         return slotNumber;
     }
