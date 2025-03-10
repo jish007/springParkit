@@ -39,7 +39,7 @@ public class ImageService {
     public static void getImage(){
         try {
             // ESP32-CAM snapshot URL
-            String snapshotUrl = "http://192.168.1.9/capture";
+            String snapshotUrl = "http://192.168.146.200:8080/shot.jpg";
 
             // Create URL object
             URL url = new URL(snapshotUrl);
@@ -81,7 +81,7 @@ public class ImageService {
         //getImage();
         String userHome = System.getProperty("user.home");
         String documentsPath = userHome + File.separator + "Documents";
-        File imageFile = new File(documentsPath, "test.jpg");
+        File imageFile = new File(documentsPath, "snapshot.jpg");
 
         // Avoid creating new HTTP client in every request
         try {

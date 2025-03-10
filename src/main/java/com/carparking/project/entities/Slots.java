@@ -175,8 +175,18 @@ public class Slots implements Comparable<Slots>{
                 ", adminName='" + adminName + '\'' +
                 ", adminPhone='" + adminPhone + '\'' +
                 ", propertyType='" + propertyType + '\'' +
-                ", adminMail='" + adminMailId + '\'' +
+                ", adminMailId='" + adminMailId + '\'' +
                 ", vehicleNum='" + vehicleNum + '\'' +
+                ", x='" + x + '\'' +
+                ", y='" + y + '\'' +
+                ", height='" + height + '\'' +
+                ", width='" + width + '\'' +
+                ", ranges='" + ranges + '\'' +
+                ", hold='" + hold + '\'' +
+                ", holdExpiryTime='" + holdExpiryTime + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", exitTime='" + exitTime + '\'' +
+                ", sheetId='" + sheetId + '\'' +
                 '}';
     }
 

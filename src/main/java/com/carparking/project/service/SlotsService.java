@@ -60,7 +60,9 @@ public class SlotsService {
     }
 
     public List<Slots> getAllSlots(String adminMailId) {
-        return slotsRepository.findByAdminMailId(adminMailId);
+        List<Slots> slots = slotsRepository.findByAdminMailId(adminMailId);
+        System.out.println("Slots Data: " + slots);
+        return slots;
     }
 
     public String getActiveUser(){

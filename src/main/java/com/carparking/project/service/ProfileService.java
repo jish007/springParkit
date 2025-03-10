@@ -43,6 +43,21 @@ public class ProfileService {
         entity.setVehicleNumber(profileDto.getVehicleNumber());
         entity.setUserName(profileDto.getUserName());
         entity.setUserEmailId(profileDto.getUserEmailId());
+        entity.setVehicleModel(profileDto.getVehicleModel());
+        entity.setVehicleBrand(profileDto.getVehicleBrand());
+        entity.setVehicleClr(profileDto.getVehicleClr());
+        entity.setFuelType(profileDto.getFuelType());
+        entity.setVehicleGene(profileDto.getVehicleGene());
+        entity.setVehicleType(profileDto.getVehicleType());
+        entity.setPhoneNum(profileDto.getPhoneNum());
+        entity.setNoOfVehicles(1);
+        entity.setPaidStatus(false);
+        entity.setPaidAmount((double) 0);
+        entity.setTotalAmount((double) 0);
+        entity.setBanned(false);
+        entity.setFineAmount((double) 0);
+
+
         UserDto userDto = new UserDto();
         userDto.setEmail(profileDto.getUserEmailId());
         userDto.setPassword(profileDto.getPassword());

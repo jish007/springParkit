@@ -31,6 +31,11 @@ public class Profile {
     private Boolean isBanned;
     private Double fineAmount;
     private String bookingSource;
+    private String roleName;
+    private String vehicleBrand;
+    private String fuelType;
+    private String vehicleClr;
+    private String vehicleGene;
 
     public String getVehicleNumber() {
         return vehicleNumber;
@@ -190,5 +195,45 @@ public class Profile {
 
     public void setBookingSource(String bookingSource) {
         this.bookingSource = bookingSource;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getVehicleBrand() {
+        return vehicleBrand;
+    }
+
+    public void setVehicleBrand(String vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
+    }
+
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public String getVehicleClr() {
+        return vehicleClr;
+    }
+
+    public void setVehicleClr(String vehicleClr) {
+        this.vehicleClr = vehicleClr;
+    }
+
+    public String getVehicleGene() {
+        return vehicleGene;
+    }
+
+    public void setVehicleGene(String vehicleGene) {
+        this.vehicleGene = vehicleGene;
     }
 }
