@@ -105,6 +105,10 @@ public class ProfileService {
         return profileRepository.findByAdminMailId(adminMailId);
     }
 
+    public List<Profile> getProfileByUserEmail(String userEmailId) {
+        return profileRepository.findByUserEmailId(userEmailId);
+    }
+
     public Profile getProfileByVehicleNumber(String vehicleNumber) {
         return profileRepository.findByVehicleNumber(vehicleNumber);
     }

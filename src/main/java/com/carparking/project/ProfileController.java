@@ -38,4 +38,10 @@ public class ProfileController {
         return ResponseEntity.ok(profile);
     }
 
+    @GetMapping("/by-user-mail-id")
+    public ResponseEntity<List<Profile>> getProfilesByUserMailId(@RequestParam String userEmailId) {
+        List<Profile> profile = profileService.getProfileByUserEmail(userEmailId);
+        return ResponseEntity.ok(profile);
+    }
+
 }
