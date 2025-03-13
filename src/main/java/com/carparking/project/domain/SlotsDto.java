@@ -1,9 +1,5 @@
 package com.carparking.project.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -29,9 +25,9 @@ public class SlotsDto {
     private Integer width;
     private String ranges;
     private boolean hold;
-    private LocalDateTime holdExpiryTime;
-    private LocalDateTime startTime;
-    private LocalDateTime exitTime;
+    private String holdExpiryTime;
+    private String startTime;
+    private String exitTime;
     private String sheetId;
 
     private UserDto userDto;
@@ -236,27 +232,27 @@ public class SlotsDto {
         this.hold = hold;
     }
 
-    public LocalDateTime getHoldExpiryTime() {
+    public String getHoldExpiryTime() {
         return holdExpiryTime;
     }
 
-    public void setHoldExpiryTime(LocalDateTime holdExpiryTime) {
+    public void setHoldExpiryTime(String holdExpiryTime) {
         this.holdExpiryTime = holdExpiryTime;
     }
 
-    public LocalDateTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDateTime getExitTime() {
+    public String getExitTime() {
         return exitTime;
     }
 
-    public void setExitTime(LocalDateTime exitTime) {
+    public void setExitTime(String exitTime) {
         this.exitTime = exitTime;
     }
 

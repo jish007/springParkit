@@ -16,7 +16,7 @@ public class Profile {
     private String userName;
     private Integer noOfVehicles;
     private String vehicleType;
-    private LocalDateTime bookingDate;
+    private String bookingDate;
     private String userEmailId;
     private Boolean paidStatus;
     private Double paidAmount;
@@ -27,7 +27,7 @@ public class Profile {
     private String adminMailId;
     private String vehicleModel;
     private Double totalAmount;
-    private LocalTime bookingTime;
+    private String bookingTime;
     private Boolean isBanned;
     private Double fineAmount;
     private String bookingSource;
@@ -77,11 +77,11 @@ public class Profile {
         this.vehicleType = vehicleType;
     }
 
-    public LocalDateTime getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(LocalDateTime bookingDate) {
+    public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -165,11 +165,11 @@ public class Profile {
         this.totalAmount = totalAmount;
     }
 
-    public LocalTime getBookingTime() {
+    public String getBookingTime() {
         return bookingTime;
     }
 
-    public void setBookingTime(LocalTime bookingTime) {
+    public void setBookingTime(String bookingTime) {
         this.bookingTime = bookingTime;
     }
 

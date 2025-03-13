@@ -29,6 +29,8 @@ public class PropertyImageEntity {
 
     private String adminMailId;
 
+    private String ownerPhoneNum;
+
     // Getters and setters
     public Long getImageId() {
         return imageId;
@@ -100,5 +102,13 @@ public class PropertyImageEntity {
 
     public void setAdminMailId(String adminMailId) {
         this.adminMailId = adminMailId;
+    }
+
+    public String getOwnerPhoneNum() {
+        return ownerPhoneNum;
+    }
+
+    public void setOwnerPhoneNum(String ownerPhoneNum) {
+        this.ownerPhoneNum = ownerPhoneNum;
     }
 }

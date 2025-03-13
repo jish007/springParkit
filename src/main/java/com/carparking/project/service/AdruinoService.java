@@ -34,8 +34,8 @@ public class AdruinoService {
 
     public String getSlot(Map<String, String> requestParams) throws Exception {
         System.out.println("I am in" + requestParams);
-        return "1gokul";
-        /*String vehicleno = imageService.getVehicleNumber();
+        //return "1gokul";
+        String vehicleno = imageService.getVehicleNumber();
         vehicleno = vehicleno.replaceAll("\\s+", "").toLowerCase();
         System.out.println(vehicleno);
         Optional<Profile> profile = Optional.ofNullable(profileService.getProfileByVehicleNumber(vehicleno));
@@ -48,7 +48,7 @@ public class AdruinoService {
             return "up"+slots.getSlotNumber();
         } else {
             return "0";
-        }*/
+        }
         /*Slots slots=  slotsHelper.parkCar(vehicleno);
         String activeUser = slotsHelper.getActiveuser();
         if(StringUtils.isNullOrEmpty(vehicleno)){

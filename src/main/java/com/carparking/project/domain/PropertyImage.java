@@ -10,6 +10,7 @@ public class PropertyImage {
     private String propertyOwner;
     private String ratePerHour;
     private String adminMailId;
+    private String ownerPhoneNum;
 
     // Default constructor
     public PropertyImage() {}
@@ -93,5 +94,13 @@ public class PropertyImage {
 
     public void setAdminMailId(String adminMailId) {
         this.adminMailId = adminMailId;
+    }
+
+    public String getOwnerPhoneNum() {
+        return ownerPhoneNum;
+    }
+
+    public void setOwnerPhoneNum(String ownerPhoneNum) {
+        this.ownerPhoneNum = ownerPhoneNum;
     }
 }

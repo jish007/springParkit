@@ -27,8 +27,8 @@ public class ProfileController {
     }
 
     @GetMapping("/by-admin-mail-id")
-    public ResponseEntity<List<ProfileDto>> getProfilesByAdminMailId(@RequestParam String adminMailId) {
-        List<ProfileDto> profileDtos = profileService.getProfilesByAdminMailId(adminMailId);
+    public ResponseEntity<List<Profile>> getProfilesByAdminMailId(@RequestParam String adminMailId) {
+        List<Profile> profileDtos = profileService.getProfilesByAdminMailId(adminMailId);
         return ResponseEntity.ok(profileDtos);
     }
 

@@ -81,7 +81,7 @@ public class ProfileService {
         profile.setAllocatedSlotNumber(slots.getSlotNumber());
         profile.setBookingSource(bookingSource);
         profile.setVehicleType("car");
-        profile.setBookingDate(LocalDateTime.now());
+        profile.setBookingDate(LocalDateTime.now().toString());
         profile.setDurationOfAllocation("01:00:00");
         profile.setParkedPropertyName(slots.getPropertyName());
         profile.setAdminMailId(slots.getAdminMailId());
@@ -89,7 +89,7 @@ public class ProfileService {
         profile.setPaidStatus(false);
         profile.setPaidAmount((double) 0);
         profile.setTotalAmount((double) 0);
-        profile.setBookingTime(LocalDateTime.now().toLocalTime());
+        profile.setBookingTime(LocalDateTime.now().toLocalTime().toString());
         profile.setBanned(false);
         profile.setFineAmount((double) 0);
         Profile obj = profileRepository.save(profile);
@@ -101,30 +101,8 @@ public class ProfileService {
         }
     }
 
-    public List<ProfileDto> getProfilesByAdminMailId(String adminMailId) {
-        return profileRepository.findByAdminMailId(adminMailId).stream().map(entity -> {
-            ProfileDto profileDto = new ProfileDto();
-            profileDto.setVehicleNumber(entity.getVehicleNumber());
-            profileDto.setPhoneNum(entity.getPhoneNum());
-            profileDto.setUserName(entity.getUserName());
-            profileDto.setNoOfVehicles(entity.getNoOfVehicles());
-            profileDto.setVehicleType(entity.getVehicleType());
-            profileDto.setBookingDate(entity.getBookingDate());
-            profileDto.setUserEmailId(entity.getUserEmailId());
-            profileDto.setPaidStatus(entity.isPaidStatus());
-            profileDto.setPaidAmount(entity.getPaidAmount());
-            profileDto.setAllocatedSlotNumber(entity.getAllocatedSlotNumber());
-            profileDto.setParkedPropertyName(entity.getParkedPropertyName());
-            profileDto.setDurationOfAllocation(entity.getDurationOfAllocation());
-            profileDto.setPaymentDate(entity.getPaymentDate());
-            profileDto.setAdminMailId(entity.getAdminMailId());
-            profileDto.setVehicleModel(entity.getVehicleModel());
-            profileDto.setTotalAmount(entity.getTotalAmount());
-            profileDto.setBookingTime(entity.getBookingTime());
-            profileDto.setBanned(entity.isBanned());
-            profileDto.setFineAmount(entity.getFineAmount());
-            return profileDto;
-        }).collect(Collectors.toList());
+    public List<Profile> getProfilesByAdminMailId(String adminMailId) {
+        return profileRepository.findByAdminMailId(adminMailId);
     }
 
     public Profile getProfileByVehicleNumber(String vehicleNumber) {
