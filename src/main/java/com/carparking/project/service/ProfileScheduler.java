@@ -20,7 +20,7 @@ public class ProfileScheduler {
     @Autowired
     SlotsService slotsService;
 
-    @Scheduled(cron = "0 30 * * * ?")
+    @Scheduled(cron = "0 10 * * * ?")
     public void updateProfile() throws JsonProcessingException {
     System.out.println("updation from qr code started");
        List<Profile> profiles =  profileService.getProfiles();

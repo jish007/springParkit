@@ -12,6 +12,7 @@ public class Profile {
     @Column(name="vehicle_number")
     private String vehicleNumber;
 
+    private Integer remainingtime;
     private String phoneNum;
     private String userName;
     private Integer noOfVehicles;
@@ -24,6 +25,35 @@ public class Profile {
     private String parkedPropertyName;
     private String durationOfAllocation;
     private String paymentDate;
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "vehicleNumber='" + vehicleNumber + '\'' +
+                ", remainingtime=" + remainingtime +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", userName='" + userName + '\'' +
+                ", noOfVehicles=" + noOfVehicles +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", bookingDate=" + bookingDate +
+                ", userEmailId='" + userEmailId + '\'' +
+                ", paidStatus=" + paidStatus +
+                ", paidAmount=" + paidAmount +
+                ", allocatedSlotNumber='" + allocatedSlotNumber + '\'' +
+                ", parkedPropertyName='" + parkedPropertyName + '\'' +
+                ", durationOfAllocation='" + durationOfAllocation + '\'' +
+                ", paymentDate='" + paymentDate + '\'' +
+                ", adminMailId='" + adminMailId + '\'' +
+                ", vehicleModel='" + vehicleModel + '\'' +
+                ", totalAmount=" + totalAmount +
+                ", bookingTime=" + bookingTime +
+                ", isBanned=" + isBanned +
+                ", fineAmount=" + fineAmount +
+                ", bookingSource='" + bookingSource + '\'' +
+                ", endtime=" + endtime +
+                '}';
+    }
+
     private String adminMailId;
     private String vehicleModel;
     private Double totalAmount;
@@ -31,6 +61,7 @@ public class Profile {
     private Boolean isBanned;
     private Double fineAmount;
     private String bookingSource;
+    private LocalTime endtime;
 
     public String getVehicleNumber() {
         return vehicleNumber;
@@ -92,8 +123,32 @@ public class Profile {
         return paidStatus;
     }
 
+    public Integer getRemainingtime() {
+        return remainingtime;
+    }
+
+    public void setRemainingtime(Integer remainingtime) {
+        this.remainingtime = remainingtime;
+    }
+
     public void setPaidStatus(Boolean paidStatus) {
         this.paidStatus = paidStatus;
+    }
+
+    public Boolean getPaidStatus() {
+        return paidStatus;
+    }
+
+    public Boolean getBanned() {
+        return isBanned;
+    }
+
+    public LocalTime getEndtime() {
+        return endtime;
+    }
+
+    public void setEndtime(LocalTime endtime) {
+        this.endtime = endtime;
     }
 
     public Double getPaidAmount() {
