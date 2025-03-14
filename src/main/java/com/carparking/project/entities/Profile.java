@@ -17,7 +17,7 @@ public class Profile {
     private String userName;
     private Integer noOfVehicles;
     private String vehicleType;
-    private LocalDateTime bookingDate;
+    private String bookingDate;
     private String userEmailId;
     private Boolean paidStatus;
     private Double paidAmount;
@@ -57,11 +57,16 @@ public class Profile {
     private String adminMailId;
     private String vehicleModel;
     private Double totalAmount;
-    private LocalTime bookingTime;
+    private String bookingTime;
     private Boolean isBanned;
     private Double fineAmount;
     private String bookingSource;
     private LocalTime endtime;
+    private String roleName;
+    private String vehicleBrand;
+    private String fuelType;
+    private String vehicleClr;
+    private String vehicleGene;
 
     public String getVehicleNumber() {
         return vehicleNumber;
@@ -103,11 +108,11 @@ public class Profile {
         this.vehicleType = vehicleType;
     }
 
-    public LocalDateTime getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(LocalDateTime bookingDate) {
+    public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -215,11 +220,11 @@ public class Profile {
         this.totalAmount = totalAmount;
     }
 
-    public LocalTime getBookingTime() {
+    public String getBookingTime() {
         return bookingTime;
     }
 
-    public void setBookingTime(LocalTime bookingTime) {
+    public void setBookingTime(String bookingTime) {
         this.bookingTime = bookingTime;
     }
 
@@ -245,5 +250,45 @@ public class Profile {
 
     public void setBookingSource(String bookingSource) {
         this.bookingSource = bookingSource;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getVehicleBrand() {
+        return vehicleBrand;
+    }
+
+    public void setVehicleBrand(String vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
+    }
+
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public String getVehicleClr() {
+        return vehicleClr;
+    }
+
+    public void setVehicleClr(String vehicleClr) {
+        this.vehicleClr = vehicleClr;
+    }
+
+    public String getVehicleGene() {
+        return vehicleGene;
+    }
+
+    public void setVehicleGene(String vehicleGene) {
+        this.vehicleGene = vehicleGene;
     }
 }

@@ -48,7 +48,7 @@ public class SlotsHelper {
 
         LocalDateTime startTime = LocalDateTime.now();
         LocalDateTime endTime = startTime.plusHours(1);
-        slotsRepository.updateSlotAvailability(slot.getSlotId(), false, vehicleNum,startTime,endTime);
+        slotsRepository.updateSlotAvailability(slot.getSlotId(), false, vehicleNum,startTime.toString(),endTime.toString());
 
         return slot;
     }

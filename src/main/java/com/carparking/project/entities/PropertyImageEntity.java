@@ -25,6 +25,12 @@ public class PropertyImageEntity {
 
     private String propertyOwner;
 
+    private String ratePerHour;
+
+    private String adminMailId;
+
+    private String ownerPhoneNum;
+
     // Getters and setters
     public Long getImageId() {
         return imageId;
@@ -80,5 +86,29 @@ public class PropertyImageEntity {
 
     public void setPropertyOwner(String propertyOwner) {
         this.propertyOwner = propertyOwner;
+    }
+
+    public String getRatePerHour() {
+        return ratePerHour;
+    }
+
+    public void setRatePerHour(String ratePerHour) {
+        this.ratePerHour = ratePerHour;
+    }
+
+    public String getAdminMailId() {
+        return adminMailId;
+    }
+
+    public void setAdminMailId(String adminMailId) {
+        this.adminMailId = adminMailId;
+    }
+
+    public String getOwnerPhoneNum() {
+        return ownerPhoneNum;
+    }
+
+    public void setOwnerPhoneNum(String ownerPhoneNum) {
+        this.ownerPhoneNum = ownerPhoneNum;
     }
 }

@@ -12,4 +12,5 @@ public interface ProfileRepository extends JpaRepository<Profile, String> {
 
     Profile findByVehicleNumber(String vehicleNumber);
 
+    List<Profile> findByUserEmailId(String userMail);
 }

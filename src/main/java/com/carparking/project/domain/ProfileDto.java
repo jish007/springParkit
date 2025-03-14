@@ -1,8 +1,5 @@
 package com.carparking.project.domain;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-
 public class ProfileDto {
 
     private String vehicleNumber;
@@ -10,7 +7,7 @@ public class ProfileDto {
     private String userName;
     private Integer noOfVehicles;
     private String vehicleType;
-    private LocalDateTime bookingDate;
+    private String bookingDate;
     private String userEmailId;
     private Boolean paidStatus;
     private Double paidAmount;
@@ -21,10 +18,15 @@ public class ProfileDto {
     private String adminMailId;
     private String vehicleModel;
     private Double totalAmount;
-    private LocalTime bookingTime;
+    private String bookingTime;
     private Boolean isBanned;
     private Double fineAmount;
     private String bookingSource;
+    private String roleName;
+    private String vehicleBrand;
+    private String fuelType;
+    private String vehicleClr;
+    private String vehicleGene;
 
     private String password;
 
@@ -69,11 +71,11 @@ public class ProfileDto {
         this.vehicleType = vehicleType;
     }
 
-    public LocalDateTime getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(LocalDateTime bookingDate) {
+    public void setBookingDate(String bookingDate) {
         this.bookingDate = bookingDate;
     }
 
@@ -157,11 +159,11 @@ public class ProfileDto {
         this.totalAmount = totalAmount;
     }
 
-    public LocalTime getBookingTime() {
+    public String getBookingTime() {
         return bookingTime;
     }
 
-    public void setBookingTime(LocalTime bookingTime) {
+    public void setBookingTime(String bookingTime) {
         this.bookingTime = bookingTime;
     }
 
@@ -195,5 +197,45 @@ public class ProfileDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getVehicleBrand() {
+        return vehicleBrand;
+    }
+
+    public void setVehicleBrand(String vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
+    }
+
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public String getVehicleClr() {
+        return vehicleClr;
+    }
+
+    public void setVehicleClr(String vehicleClr) {
+        this.vehicleClr = vehicleClr;
+    }
+
+    public String getVehicleGene() {
+        return vehicleGene;
+    }
+
+    public void setVehicleGene(String vehicleGene) {
+        this.vehicleGene = vehicleGene;
     }
 }

@@ -34,6 +34,7 @@ public class AdruinoService {
 
     public String getSlot(Map<String, String> requestParams) throws Exception {
         System.out.println("I am in" + requestParams);
+        //return "1gokul";
         String vehicleno = imageService.getVehicleNumber();
         vehicleno = vehicleno.replaceAll("\\s+", "").toLowerCase();
         System.out.println(vehicleno);
@@ -44,7 +45,7 @@ public class AdruinoService {
         } else if (slotsService.isAvailableSlot()) {
             Slots slots = slotsHelper.parkCar(vehicleno);
             profileService.saveOnSiteProfile(vehicleno, slots, "ON-SITE");
-            return "11"+slots.getSlotNumber();
+            return "up"+slots.getSlotNumber();
         } else {
             return "0";
         }
