@@ -43,6 +43,10 @@ public class ProfileService {
         entity.setVehicleNumber(profileDto.getVehicleNumber());
         entity.setUserName(profileDto.getUserName());
         entity.setUserEmailId(profileDto.getUserEmailId());
+        entity.setBookingDate(LocalDateTime.now());
+        entity.setBookingTime(LocalDateTime.now().toLocalTime());
+        entity.setEndtime(LocalDateTime.now().plusHours(1).toLocalTime());
+        entity.setDurationOfAllocation("01:00:00");
         entity.setVehicleModel(profileDto.getVehicleModel());
         entity.setVehicleBrand(profileDto.getVehicleBrand());
         entity.setVehicleClr(profileDto.getVehicleClr());
@@ -57,20 +61,12 @@ public class ProfileService {
         entity.setBanned(false);
         entity.setFineAmount((double) 0);
 
-
-        UserDto userDto = new UserDto();
-        userDto.setEmail(profileDto.getUserEmailId());
-        userDto.setPassword(profileDto.getPassword());
-        userDto.setRoleName("USER");
-        userDto.setActive("INACTIVE");
-
-        User user = loginRepository.save(new User(userDto));
         Profile profile = profileRepository.save(entity);
-        if(Objects.nonNull(user) && Objects.nonNull(profile)){
-            return "User Is Created";
+        if( Objects.nonNull(profile)){
+            return "profile Is Created";
         }
         else{
-            throw new Exception("User Creation Failed");
+            throw new Exception("profile Creation Failed");
         }
     }
 
@@ -85,6 +81,7 @@ public class ProfileService {
         profile.setDurationOfAllocation("01:00:00");
         profile.setParkedPropertyName(slots.getPropertyName());
         profile.setAdminMailId(slots.getAdminMailId());
+        profile.setEndtime(LocalDateTime.now().plusHours(1).toLocalTime());
         profile.setNoOfVehicles(1);
         profile.setPaidStatus(false);
         profile.setPaidAmount((double) 0);
