@@ -11,7 +11,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -43,8 +47,8 @@ public class ProfileService {
         entity.setVehicleNumber(profileDto.getVehicleNumber());
         entity.setUserName(profileDto.getUserName());
         entity.setUserEmailId(profileDto.getUserEmailId());
-        entity.setBookingDate(LocalDateTime.now());
-        entity.setBookingTime(LocalDateTime.now().toLocalTime());
+        entity.setBookingDate(LocalDateTime.now().toString());
+        entity.setBookingTime(LocalDateTime.now().toLocalTime().toString());
         entity.setEndtime(LocalDateTime.now().plusHours(1).toLocalTime());
         entity.setDurationOfAllocation("01:00:00");
         entity.setVehicleModel(profileDto.getVehicleModel());
@@ -155,4 +159,21 @@ public class ProfileService {
         return  null;
     }
 
+    public Map<String,String> getAllTimer(){
+        LocalDateTime currentDate = LocalDateTime.now();
+        List<Profile> profiles =   profileRepository.findAll().stream().filter(p->p.getAdminMailId().equals("gokulgnair777@gmail.com")).collect(Collectors.toList());
+    return    profiles.stream()
+                .collect(Collectors.toMap(Profile::getVehicleNumber, p->duration(currentDate,convertToLocalDateTime(p.getEndtime(),currentDate.toLocalDate()))));
+
+    }
+
+    private LocalDateTime convertToLocalDateTime(LocalTime time, LocalDate date) {
+        return LocalDateTime.of(date, time);
+    }
+
+
+    public String duration(LocalDateTime currentDateTime, LocalDateTime endDateTime){
+        Duration remainingDuration = Duration.between(currentDateTime, endDateTime);
+     return remainingDuration.toString();
+    }
 }
