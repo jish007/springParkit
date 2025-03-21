@@ -11,7 +11,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -43,9 +48,9 @@ public class ProfileService {
         entity.setVehicleNumber(profileDto.getVehicleNumber());
         entity.setUserName(profileDto.getUserName());
         entity.setUserEmailId(profileDto.getUserEmailId());
-        entity.setBookingDate(LocalDateTime.now());
-        entity.setBookingTime(LocalDateTime.now().toLocalTime());
-        entity.setEndtime(LocalDateTime.now().plusHours(1).toLocalTime());
+        entity.setBookingDate(LocalDateTime.now().toString());
+        entity.setBookingTime(LocalDateTime.now().toLocalTime().toString());
+        entity.setEndtime(LocalDateTime.now().plusHours(1).toLocalTime().toString());
         entity.setDurationOfAllocation("01:00:00");
         entity.setVehicleModel(profileDto.getVehicleModel());
         entity.setVehicleBrand(profileDto.getVehicleBrand());
@@ -60,7 +65,7 @@ public class ProfileService {
         entity.setTotalAmount((double) 0);
         entity.setBanned(false);
         entity.setFineAmount((double) 0);
-
+        entity.setAdminMailId(loginRepository.getActiveUser());
         Profile profile = profileRepository.save(entity);
         if( Objects.nonNull(profile)){
             return "profile Is Created";
@@ -81,7 +86,7 @@ public class ProfileService {
         profile.setDurationOfAllocation("01:00:00");
         profile.setParkedPropertyName(slots.getPropertyName());
         profile.setAdminMailId(slots.getAdminMailId());
-        profile.setEndtime(LocalDateTime.now().plusHours(1).toLocalTime());
+        profile.setEndtime(LocalDateTime.now().plusHours(1).toLocalTime().toString());
         profile.setNoOfVehicles(1);
         profile.setPaidStatus(false);
         profile.setPaidAmount((double) 0);
@@ -154,5 +159,30 @@ public class ProfileService {
         }
         return  null;
     }
+
+    public Map<String,String> getAllTimer(){
+        LocalDateTime currentDate = LocalDateTime.now();
+        List<Profile> profiles =   profileRepository.findAll().stream().filter(p->p.getAdminMailId().equals("gokulgnair777@gmail.com")).collect(Collectors.toList());
+    return    profiles.stream()
+                .collect(Collectors.toMap(Profile::getVehicleNumber, p->duration(currentDate,convertToLocalDateTime(LocalDateTime.parse(p.getEndtime(), DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm:ss")).toLocalTime(),currentDate.toLocalDate()))));
+
+    }
+
+    private LocalDateTime convertToLocalDateTime(LocalTime time, LocalDate date) {
+        return LocalDateTime.of(date, time);
+    }
+
+
+    public String duration(LocalDateTime currentDateTime, LocalDateTime endDateTime){
+        Duration remainingDuration = Duration.between(currentDateTime, endDateTime);
+        long hours = remainingDuration.toHours();
+        long minutes = remainingDuration.toMinutes() % 60;
+        long seconds = remainingDuration.getSeconds() % 60;
+        System.out.println(String.format("%02d hours, %02d minutes, %02d seconds", hours, minutes, seconds));
+        return String.format("%02d hours, %02d minutes, %02d seconds", hours, minutes, seconds);
+    }
+
+
+
 
 }
