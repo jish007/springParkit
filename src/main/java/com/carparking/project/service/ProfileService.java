@@ -3,6 +3,7 @@ package com.carparking.project.service;
 import com.carparking.project.domain.*;
 import com.carparking.project.entities.Profile;
 import com.carparking.project.entities.Slots;
+import com.carparking.project.entities.User;
 import com.carparking.project.helper.JotFormSubmissions;
 import com.carparking.project.repository.LoginRepository;
 import com.carparking.project.repository.ProfileRepository;
@@ -183,8 +184,10 @@ public class ProfileService {
 
 
     public String ban(String vehicleNumber) {
-      Profile profile =   profileRepository.findByVehicleNumber(vehicleNumber);
+        Profile profile =   profileRepository.findByVehicleNumber(vehicleNumber);
+        User user= loginRepository.findByEmail(profile.getUserEmailId());
         profile.setBanned(true);
+        user.setIs_banned(true);
         profile=profileRepository.save(profile);
         if(Objects.nonNull(profile)){
             return "banned";

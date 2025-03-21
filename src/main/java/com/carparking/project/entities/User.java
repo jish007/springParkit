@@ -16,6 +16,8 @@ public class User {
     private String email;
 
     private String password;
+    @Column(name="is_banned")
+    private boolean is_banned;
 
     @Column(name="active")
     private String active;
@@ -50,6 +52,14 @@ public class User {
 
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    public boolean isIs_banned() {
+        return is_banned;
+    }
+
+    public void setIs_banned(boolean is_banned) {
+        this.is_banned = is_banned;
     }
 
     public void setActive(String active) {

@@ -21,7 +21,7 @@ public class LoginService {
 
     public User login(UserDto userDto) throws Exception {
         User user = loginRepository.findByEmailAndPassword(userDto.getEmail(), userDto.getPassword());
-        if (Objects.nonNull(user)) {
+        if (Objects.nonNull(user)&&!user.isIs_banned()) {
             user.setActive("ACTIVE");
             loginRepository.save(user);
             return user;
