@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/profiles")
@@ -43,5 +44,13 @@ public class ProfileController {
         List<Profile> profile = profileService.getProfileByUserEmail(userEmailId);
         return ResponseEntity.ok(profile);
     }
+
+    @GetMapping("/timer")
+    public ResponseEntity< Map<String, String>> getTimer() {
+        Map<String, String> profile = profileService.getAllTimer();
+        return ResponseEntity.ok(profile);
+    }
+
+
 
 }

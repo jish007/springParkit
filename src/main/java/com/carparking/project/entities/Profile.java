@@ -61,7 +61,7 @@ public class Profile {
     private Boolean isBanned;
     private Double fineAmount;
     private String bookingSource;
-    private LocalTime endtime;
+    private String endtime;
     private String roleName;
     private String vehicleBrand;
     private String fuelType;
@@ -148,11 +148,11 @@ public class Profile {
         return isBanned;
     }
 
-    public LocalTime getEndtime() {
+    public String getEndtime() {
         return endtime;
     }
 
-    public void setEndtime(LocalTime endtime) {
+    public void setEndtime(String endtime) {
         this.endtime = endtime;
     }
 
