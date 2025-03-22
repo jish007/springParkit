@@ -123,7 +123,7 @@ public class ProfileService {
 
 
 
-    public  String updateProfile(String formId) throws JsonProcessingException {
+    public  String updateProfile(String formId) throws Exception {
         String jsonResponse =   jotFormSubmissions.getFormResponse(formId);
         JsonResponse jsonResponse1 =objectMapper.readValue(jsonResponse, JsonResponse.class);
         List<FormContent> formdata = jsonResponse1.getContent();
@@ -137,6 +137,11 @@ public class ProfileService {
         String emailData =email.getAnswer().toString().replaceAll("\\s","");
         String fullNamePrettyFormat = fullName.getPrettyFormat();
         ;        String emailinfo = emailData.replace("\"", "");  // Remove all double quotes
+
+       List<String> banned =  loginRepository.bannedUsers();
+       if(banned.contains(emailinfo)){
+           throw new Exception("user is banned");
+       }
         String output = vehiclenumber.replace("\"", "");  // Remove all double quotes
         try {
             List<Profile> profiles = new ArrayList<>();
