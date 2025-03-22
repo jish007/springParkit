@@ -31,6 +31,8 @@ public class ProfileScheduler {
                 profileService.updateProfile(sheetmap.get(slotsallocate));
            } catch (JsonProcessingException e) {
                e.printStackTrace();
+           } catch (Exception e) {
+               e.printStackTrace();
            }
        });
 

@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface LoginRepository extends CrudRepository<User, String> {
 
@@ -14,5 +16,8 @@ public interface LoginRepository extends CrudRepository<User, String> {
 
     @Query(value = "SELECT email FROM login WHERE active = 'ACTIVE' and rolename = 'ADMIN_USER'", nativeQuery = true)
     public String getActiveUser();
+
+    @Query(value = "SELECT email FROM login WHERE is_banned = true and rolename = 'USER'", nativeQuery = true)
+    public List<String> bannedUsers();
 
 }
