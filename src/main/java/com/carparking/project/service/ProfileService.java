@@ -17,10 +17,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
@@ -198,5 +201,36 @@ public class ProfileService {
             return "banned";
         }
         return "failed";
+    }
+
+
+    public String rechargeProfile(String vehiclenumber, String duration){
+        Profile profile =     profileRepository.findByVehicleNumber(vehiclenumber);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(profile.getEndtime(), formatter);
+        LocalDateTime newDateTime = addCustomDuration(dateTime, duration);
+        profile.setEndtime(newDateTime.toString());
+        profileRepository.save(profile);
+        return newDateTime.toString();
+    }
+
+
+
+
+    public static LocalDateTime addCustomDuration(LocalDateTime dateTime, String durationStr) {
+        Pattern pattern = Pattern.compile("(\\d+)([hms])"); // Regex to extract hours, minutes, seconds
+        Matcher matcher = pattern.matcher(durationStr);
+
+        while (matcher.find()) {
+            int value = Integer.parseInt(matcher.group(1));
+            String unit = matcher.group(2);
+
+            switch (unit) {
+                case "h": dateTime = dateTime.plus(value, ChronoUnit.HOURS); break;
+                case "m": dateTime = dateTime.plus(value, ChronoUnit.MINUTES); break;
+                case "s": dateTime = dateTime.plus(value, ChronoUnit.SECONDS); break;
+            }
+        }
+        return dateTime;
     }
 }
