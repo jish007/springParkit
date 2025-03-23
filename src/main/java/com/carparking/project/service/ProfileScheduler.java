@@ -20,13 +20,15 @@ public class ProfileScheduler {
     @Autowired
     SlotsService slotsService;
 
-    @Scheduled(cron = "0 10 * * * ?")
+    @Scheduled(fixedRate = 1000)
     public void updateProfile() throws JsonProcessingException {
     System.out.println("updation from qr code started");
        List<Profile> profiles =  profileService.getProfiles();
        Map<String,String> sheetmap=  slotsService.getAllSlots(slotsService.getActiveUser()).stream().collect(Collectors.toMap(Slots::getSlotNumber,Slots::getSheetId));
-       List<String> slotsallocated =  profiles.stream().map(p->p.getAllocatedSlotNumber()).collect(Collectors.toList());
-       slotsallocated.stream().forEach(slotsallocate-> {
+        System.out.println(sheetmap);
+        List<String> slotsallocated =  profiles.stream().map(p->p.getAllocatedSlotNumber()).collect(Collectors.toList());
+        System.out.println(slotsallocated);
+        slotsallocated.stream().forEach(slotsallocate-> {
            try {
                 profileService.updateProfile(sheetmap.get(slotsallocate));
            } catch (JsonProcessingException e) {
