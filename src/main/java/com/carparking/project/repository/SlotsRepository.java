@@ -19,4 +19,11 @@ public interface SlotsRepository extends CrudRepository<Slots, Integer> {
     @Transactional
     @Query("UPDATE Slots s SET s.slotAvailability = :slotAvailability, s.vehicleNum = :vehicleNum, s.startTime = :startTime, s.exitTime = :exitTime WHERE s.slotId = :slotId")
     void updateSlotAvailability(int slotId, boolean slotAvailability, String vehicleNum, String startTime, String exitTime);
+
+
+    @Transactional
+    @Query("UPDATE Slots s SET s.slotAvailability = true WHERE s.slot_number = :slot_number")
+    void updateSlotavailable(String slotNumber);
+
+
 }

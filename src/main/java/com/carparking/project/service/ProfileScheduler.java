@@ -39,4 +39,21 @@ public class ProfileScheduler {
        });
 
     }
+    @Scheduled(fixedRate = 2000)
+public void leaveSlot(){
+      Map<String,String> profileWithTimer =   profileService.getAllTimer();
+        for (Map.Entry<String, String> entry : profileWithTimer.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+            String[] parts =  entry.getValue().split("\\D+");
+
+          if(parts[0].equals("0")&& parts[1].equals("0")&&parts[2].equals("0")){
+              System.out.println("parking completed");
+             Profile profile =  profileService.getProfileByVehicleNumber(entry.getKey());
+        String slotnumber = profile.getAllocatedSlotNumber();
+              profileService.leaveSlotFlow(profile, slotnumber);
+          }
+        }
+
+    }
+
 }

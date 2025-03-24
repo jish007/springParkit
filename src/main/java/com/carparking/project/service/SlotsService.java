@@ -80,4 +80,9 @@ public class SlotsService {
             return false;
         }
     }
+
+    public void leaveSlot(String slotnumber){
+        slotsRepository.updateSlotavailable(slotnumber);
+
+    }
 }
