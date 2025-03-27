@@ -50,7 +50,7 @@ public void leaveSlot(){
               System.out.println("parking completed");
              Profile profile =  profileService.getProfileByVehicleNumber(entry.getKey());
         String slotnumber = profile.getAllocatedSlotNumber();
-              profileService.leaveSlotFlow(profile, slotnumber);
+              profileService.leaveSlotFlow(slotnumber);
           }
         }
 

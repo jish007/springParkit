@@ -4,10 +4,11 @@ import com.carparking.project.domain.*;
 import com.carparking.project.entities.Profile;
 import com.carparking.project.entities.Slots;
 import com.carparking.project.entities.User;
-import com.carparking.project.helper.JotFormSubmissions;
+import com.carparking.project.helper.JotFormSubmissionsHelper;
+import com.carparking.project.helper.SlotsHelper;
 import com.carparking.project.repository.LoginRepository;
 import com.carparking.project.repository.ProfileRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.carparking.project.repository.SlotsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,7 +37,7 @@ public class ProfileService {
     private LoginRepository loginRepository;
 
     @Autowired
-    JotFormSubmissions jotFormSubmissions;
+    JotFormSubmissionsHelper jotFormSubmissionsHelper;
 
     @Autowired
     LoginService loginService;
@@ -45,7 +46,10 @@ public class ProfileService {
     ObjectMapper objectMapper;
 
     @Autowired
-    SlotsService slotsService;
+    SlotsHelper slotsHelper;
+
+    @Autowired
+    SlotsRepository slotsRepository;
 
 
     //for app users
@@ -127,7 +131,7 @@ public class ProfileService {
 
 
     public String updateProfile(String formId) throws Exception {
-        String jsonResponse = jotFormSubmissions.getFormResponse(formId);
+        String jsonResponse = jotFormSubmissionsHelper.getFormResponse(formId);
         JsonResponse jsonResponse1 = objectMapper.readValue(jsonResponse, JsonResponse.class);
         List<FormContent> formdata = jsonResponse1.getContent();
         Map<String, Answer> answers = formdata.stream().map(form -> form.getAnswers()).findFirst().get();
@@ -172,7 +176,7 @@ public class ProfileService {
         LocalDateTime currentDate = LocalDateTime.now();
         List<Profile> profiles = profileRepository.findAll().stream().filter(p -> p.getAdminMailId().equals("gokulgnair777@gmail.com")).collect(Collectors.toList());
         return profiles.stream()
-                .collect(Collectors.toMap(Profile::getVehicleNumber, p -> duration(currentDate, convertToLocalDateTime(LocalDateTime.parse(p.getEndtime(), DateTimeFormatter.ofPattern("yyyy-MM-dd H:mm:ss")).toLocalTime(), currentDate.toLocalDate()))));
+                .collect(Collectors.toMap(Profile::getVehicleNumber, p -> duration(currentDate, convertToLocalDateTime(LocalDateTime.parse(p.getEndtime(), DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")).toLocalTime(), currentDate.toLocalDate()))));
 
     }
 
@@ -246,11 +250,15 @@ public class ProfileService {
 
     }
 
-    public void leaveSlotFlow(Profile profile, String slotnumber){
-        slotsService.leaveSlot(slotnumber);
+    public void leaveSlotFlow(String slotnumber){
+        Profile profile = profileRepository.findByallocatedSlotNumber(slotnumber);
+        slotsHelper.leaveSlot(slotsRepository.findByslotNumber(slotnumber));
         profile.setAllocatedSlotNumber("");
         profile.setEndtime(String.valueOf(0));
+        profileRepository.save(profile);
     }
+
+
 
 }
 
