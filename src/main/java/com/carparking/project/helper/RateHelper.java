@@ -4,7 +4,6 @@ import com.carparking.project.entities.Rates;
 import com.carparking.project.repository.LoginRepository;
 import com.carparking.project.service.LoginService;
 import com.carparking.project.service.RatesService;
-import org.checkerframework.checker.guieffect.qual.AlwaysSafe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

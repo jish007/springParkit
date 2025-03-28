@@ -9,8 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class Configuration {
 
 
-
-
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper()
