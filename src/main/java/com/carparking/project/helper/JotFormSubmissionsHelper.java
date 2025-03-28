@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @Service
-public class JotFormSubmissions {
+public class JotFormSubmissionsHelper {
     private static final String API_KEY = "08a0d24f66cb11857e6faf1ebe788fdc";
    // private static final String FORM_ID = "250571659232054";
 

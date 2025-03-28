@@ -21,9 +21,7 @@ public interface SlotsRepository extends CrudRepository<Slots, Integer> {
     void updateSlotAvailability(int slotId, boolean slotAvailability, String vehicleNum, String startTime, String exitTime);
 
 
-    @Transactional
-    @Query("UPDATE Slots s SET s.slotAvailability = true WHERE s.slot_number = :slot_number")
-    void updateSlotavailable(String slotNumber);
+    public Slots findByslotNumber(String slotNumber);
 
 
 }

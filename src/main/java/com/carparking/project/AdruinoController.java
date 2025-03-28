@@ -4,6 +4,8 @@ import com.carparking.project.entities.Slots;
 import com.carparking.project.helper.SlotsHelper;
 import com.carparking.project.service.*;
 import com.mysql.cj.util.StringUtils;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@Tag(name = "Test Controller", description = "Example API for Swagger integration")
 public class AdruinoController {
 
 
@@ -25,6 +28,7 @@ public class AdruinoController {
     ProfileService profileService;
 
     @PostMapping(value = "/updateSensor", produces = MediaType.TEXT_PLAIN_VALUE)
+    @Operation(summary = "Say Hello", description = "Returns a simple greeting message")
     public ResponseEntity<String> updateSensorData(@RequestParam Map<String, String> requestParams) throws Exception {
         String response = adruinoService.getSlot(requestParams);
         System.out.println(response);

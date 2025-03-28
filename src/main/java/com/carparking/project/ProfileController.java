@@ -52,7 +52,7 @@ public class ProfileController {
     }
 
 
-    @GetMapping("/ban")
+    @GetMapping("/banned")
     public ResponseEntity<String> getTimer(@RequestParam String vehicleNumber) {
         String status =  profileService.ban(vehicleNumber);
         return ResponseEntity.ok(status);

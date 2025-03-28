@@ -1,5 +1,6 @@
 package com.carparking.project.entities;
 
+
 import javax.persistence.*;
 
 @Entity
