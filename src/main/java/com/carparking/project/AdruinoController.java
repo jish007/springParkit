@@ -28,7 +28,6 @@ public class AdruinoController {
     ProfileService profileService;
 
     @PostMapping(value = "/updateSensor", produces = MediaType.TEXT_PLAIN_VALUE)
-    @Operation(summary = "Say Hello", description = "Returns a simple greeting message")
     public ResponseEntity<String> updateSensorData(@RequestParam Map<String, String> requestParams) throws Exception {
         String response = adruinoService.getSlot(requestParams);
         System.out.println(response);
